@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🌸 My Todo List</h1>
+
+    <input type="text" id="todoInput" placeholder="Enter a task" />
+    <button onclick="addTodo()">Add</button>
+
+    <ul id="todoList"></ul>
+  </div>
+
+  <script>
+    const apiUrl = "http://localhost:8080/users/admin/todos";
+
+    async function loadTodos() {
+      const response = await fetch(apiUrl);
+      const todos = await response.json();
+      const list = document.getElementById("todoList");
+      list.innerHTML = "";
+      todos.forEach(todo => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <span>${todo.description} <br><span class="date">${todo.date || ''}</span></span>
+          <div class="actions">
+            <button onclick="editTodo(${todo.id}, '${todo.description}')">Edit</button>
+            <button onclick="deleteTodo(${todo.id})">Delete</button>
+          </div>
+        `;
+        list.appendChild(li);
+      });
+    }
+
+    async function addTodo() {
+      const input = document.getElementById("todoInput");
+      const description = input.value.trim();
+      if (!description) return alert("Please enter a task!");
+      await fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ description, done: false })
+      });
+      input.value = "";
+      loadTodos();
+    }
+
+    async function deleteTodo(id) {
+      await fetch(`${apiUrl}/${id}`, { method: "DELETE" });
+      loadTodos();
+    }
+
+    async function editTodo(id, oldDescription) {
+      const newDescription = prompt("Edit your task:", oldDescription);
+      if (newDescription && newDescription !== oldDescription) {
+        await fetch(`${apiUrl}/${id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ description: newDescription })
+        });
+        loadTodos();
+      }
+    }
+
+    loadTodos();
+  </script>
+</body>
+</html>
