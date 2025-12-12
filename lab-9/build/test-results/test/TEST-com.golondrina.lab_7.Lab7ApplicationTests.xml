@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.golondrina.lab_7.Lab7ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-11-21T07:29:52.517Z" hostname="LAPTOP-2LH262A7" time="1.843">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.golondrina.lab_7.Lab7ApplicationTests" time="1.843"/>
+  <system-out><![CDATA[15:29:50.694 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.golondrina.lab_7.Lab7ApplicationTests]: Lab7ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:29:50.848 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.golondrina.lab_7.Lab7Application for test class com.golondrina.lab_7.Lab7ApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.8)
+
+2025-11-21T15:29:51.277+08:00  INFO 12072 --- [lab-7] [    Test worker] c.golondrina.lab_7.Lab7ApplicationTests  : Starting Lab7ApplicationTests using Java 17.0.17 with PID 12072 (started by decy cornico in C:\Users\decy cornico\Desktop\Lab-7\lab-7)
+2025-11-21T15:29:51.279+08:00  INFO 12072 --- [lab-7] [    Test worker] c.golondrina.lab_7.Lab7ApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2025-11-21T15:29:52.503+08:00  INFO 12072 --- [lab-7] [    Test worker] c.golondrina.lab_7.Lab7ApplicationTests  : Started Lab7ApplicationTests in 1.481 seconds (process running for 2.63)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
